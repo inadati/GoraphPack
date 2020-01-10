@@ -1,0 +1,16 @@
+datasource db {
+    provider = "postgresql"
+    url      = "postgresql://postgres:postgres@localhost:5432/postgres?schema=public"
+}
+
+model users {
+    id   String @default(cuid()) @id
+    name String @default("guest")
+}
+
+model todos {
+    id      String  @default(cuid()) @id
+    text    String
+    done    Boolean
+    user_id String
+}
